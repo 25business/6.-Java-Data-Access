@@ -1,0 +1,42 @@
+package com.example;
+
+import com.example.models.Contact;
+import org.jdbi.v3.core.Jdbi;
+import org.jdbi.v3.core.statement.Query;
+
+import java.util.Map;
+import java.util.List;
+
+public class Program {
+    public static void main(String[] args) {
+        try {
+            Jdbi jbdi = Jdbi.create("jdbc:mysql://localhost:3307/da3_contacts","jadmin","1234");
+            jbdi.useHandle(handle -> {
+                Query select_contacts_query = handle.createQuery("SELECT * FROM contacts;");
+                /*
+                List<Map<String,Object>> contacts_list_map = select_contacts_query.mapToMap().list();
+
+                for(var contact : contacts_list_map) {
+                    System.out.printf("""
+                            First name: %s
+                            Last name: %s
+                            Phone (home): %s
+                            """, contact.get("first_name"),
+                            contact.get("last_name"), contact.get("phone_home"));
+                }
+                 */
+                List<Contact> contacts_objects = select_contacts_query.mapToBean(Contact.class).list();
+                for(var contact : contacts_objects) {
+                    System.out.printf("""
+                            First name: %s
+                            Last name: %s
+                            Phone (home): %s
+                            """, contact.getFirst_name(), contact.getLast_name(),
+                            contact.getPhone_home());
+                }
+            });
+        } catch (Exception ex) {
+            ex.printStackTrace();
+        }
+    }
+}

@@ -1,0 +1,43 @@
+            /*
+            String html_path = System.getenv("JAVA_RESOURCES") + "/da5/primer1.html";
+            String pdf_path = System.getenv("JAVA_RESOURCES") + "/da5/primer1_out.pdf";
+
+            OutputStream os = new FileOutputStream(pdf_path);
+            PdfRendererBuilder builder = new PdfRendererBuilder();
+            builder.useFastMode().withFile(new File(html_path)).toStream(os).run();
+             */
+
+            /*
+            String pdf_path = System.getenv("JAVA_RESOURCES") + "/da5/primer2_out.pdf";
+            OutputStream os = new FileOutputStream(pdf_path);
+            PdfRendererBuilder builder = new PdfRendererBuilder();
+            HashMap<String, Object> modelData = new HashMap<>();
+            modelData.put("datum", LocalDate.now());
+            modelData.put("stavke", new String[]{ "Stavka 1", "Stavka 2", "Stavka 3" });
+
+            String html_content = Renderer.render("primer2.ftl", modelData);
+            builder.useFastMode().withHtmlContent(html_content,"").toStream(os).run();
+            */
+            HashMap<String, Object> modelData = new HashMap<>();
+            modelData.put("prodavnica", "Naziv prodavnice");
+            ArrayList<Artikal> artikli = new ArrayList<>();
+            artikli.add(new Artikal("Artikal 1", 100));
+            artikli.add(new Artikal("Artikal 2", 150));
+            artikli.add(new Artikal("Artikal 3", 200));
+
+            double ukupno = 0;
+            double porez = 0;
+            for(var a : artikli) {
+                ukupno += a.cenaSaPorezom();
+                porez += a.porez();
+            }
+            modelData.put("artikli", artikli);
+            modelData.put("ukupno", ukupno);
+            modelData.put("porez", porez);
+            modelData.put("izdato", LocalDateTime.now());
+
+            String pdf_path = System.getenv("JAVA_RESOURCES") + "/da5/racun.pdf";
+            OutputStream os = new FileOutputStream(pdf_path);
+            PdfRendererBuilder builder = new PdfRendererBuilder();
+            String html_content = Renderer.render("racun.ftl", modelData);
+            builder.useFastMode().withHtmlContent(html_content,"").toStream(os).run();

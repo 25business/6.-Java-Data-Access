@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Order Form</title>
+</head>
+<body>
+    <form action="/order" method="post">
+        <p>Pizza size</p>
+        <p>
+            <input name="size" type="radio" value="28" checked> 28cm
+            <input name="size" type="radio" value="32"> 32cm
+            <input name="size" type="radio" value="42"> 42cm
+        </p>
+        <p>Meat</p>
+        <p>
+            <input name="meat" type="checkbox" value="Pepperoni"> Pepperoni <br>
+            <input name="meat" type="checkbox" value="Sausage"> Sausage <br>
+            <input name="meat" type="checkbox" value="Ham"> Ham <br>
+            <input name="meat" type="checkbox" value="Salami"> Salami <br>
+            <input name="meat" type="checkbox" value="Prosciutto"> Prosciutto <br>
+        </p>
+        <p>Toppings</p>
+        <p>
+            <b>Sauses:</b> <br>
+            <input name="toppings" type="checkbox" value="Red sauce"> Red sauce <br>
+            <input name="toppings" type="checkbox" value="Pesto"> Pesto <br>
+            <b>Veggies</b> <br>
+            <input name="toppings" type="checkbox" value="Green peppers"> Green peppers <br>
+            <input name="toppings" type="checkbox" value="Mushrooms"> Mushrooms <br>
+            <input name="toppings" type="checkbox" value="Green onions"> Green onions <br>
+            <input name="toppings" type="checkbox" value="Black olives"> Black olives <br>
+            <input name="toppings" type="checkbox" value="Red/yellow/orange bell pepper"> Red/yellow/orange bell pepper <br>
+
+            <b>Cheese</b> <br>
+            <input name="toppings" type="checkbox" value="Mozzarella"> Mozzarella <br>
+            <input name="toppings" type="checkbox" value="Parmesan"> Parmesan <br>
+            <input name="toppings" type="checkbox" value="Feta cheese"> Feta cheese <br>
+            <input name="toppings" type="checkbox" value="Gorgonzola"> Gorgonzola <br>
+            <input name="toppings" type="checkbox" value="Cheddar"> Cheddar <br>
+
+            <b>Herbs</b> <br>
+            <input name="toppings" type="checkbox" value="Basil"> Basil <br>
+            <input name="toppings" type="checkbox" value="Oregano"> Oregano <br>
+            <input name="toppings" type="checkbox" value="Rosemary"> Rosemary <br>
+            <input name="toppings" type="checkbox" value="Crushed red pepper"> Crushed red pepper
+        </p>
+        <p>Contact information</p>
+        <p>
+            <textarea name="contact_info" cols="30" rows="10"></textarea>
+        </p>
+        <p>
+            <button type="submit">Place order</button>
+        </p>
+</body>
+</html>
