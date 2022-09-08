@@ -1,0 +1,113 @@
+@import url('https://fonts.googleapis.com/css2?family=Arvo:wght@400;700&family=Courgette&display=swap');
+
+h1,h2,h3,h4, h5,h6 {
+    font-family: 'Arvo', serif;
+}
+
+.author_list_table {
+    border-collapse: collapse;
+    border: 0.0625rem solid black;
+}
+
+.author_list_table thead tr {
+    background-color: #212121;
+}
+.author_list_table th {
+    color: white;
+} 
+.author_list_table th, .author_list_table td {
+    padding: 0.25rem;
+    border: 0.0625rem solid #212121;
+}
+
+.close_button {
+    position: absolute;
+    top: 0.5rem;
+    right: 0.5rem;
+    background: none;
+    font-size: 1.5rem;
+    font-weight: bold;
+    border: none;
+}
+
+.mobile-menu-close {
+    background: none;
+    border: none;
+    outline: none;
+    font-size: 2.5rem;
+}
+
+.success_modal {
+    position: relative;
+    top: 0; left: 0;
+    width: 100%;
+    padding: 1rem;
+    background-color: rgb(173, 253, 173);
+    border: 1px solid darkgreen;
+}
+
+.error_modal {
+    position: relative;
+    top: 0; left: 0;
+    width: 100%;
+    padding: 1rem;
+    background-color: rgb(254, 133, 133);
+    border: 1px solid rgb(114, 9, 9);
+}
+
+.website-icon {
+    font-size: 4rem;
+    color: darkred;
+}
+
+.website-slogan {
+    font-size: 1.5rem;
+    color: #999999;
+}
+
+.website-title {
+    font-family: 'Courgette', cursive;
+    font-size: 2rem;
+}
+
+.website-title>a {
+    text-decoration: none;
+    color: darkred;
+}
+
+@media all and (max-width: 767px) {
+    .desktop-nav {
+        display: none;
+    }
+}
+
+@media all and (min-width: 768px) {
+    .website-title {
+        font-size: 3.5rem;
+    }
+
+    .mobile-menu-button {
+        display: none;
+    }
+}
+
+#author_delete_modal {
+    display: none;
+    position: absolute;
+    z-index: 10;
+    background-color: white;
+    padding: 1rem;
+    border: 0.3125rem solid #424242;
+    width: 18rem;
+    top: 1rem;
+    left: calc(50% - 10rem);
+}
+
+#author_delete_modal a {
+    display: inline-block;
+    padding: 0.5rem 1.25rem;
+    text-decoration: none;
+    background-color: #f2f2f2;
+    border: 0.0625rem solid #cccccc;
+    color: #212121;
+}
